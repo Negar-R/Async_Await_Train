@@ -24,9 +24,11 @@ async def get_divar_top(client , subreddit):
 
 
 async def main(client):
-    await asyncio.gather(get_divar_top(client , '/car?q='+'پراید') ,
-                        get_divar_top(client , '/car?q='+'206') ,
-                        get_divar_top(client , '/car?q='+'پیکان'))
+    while True:
+        await asyncio.gather(get_divar_top(client , '/car?q='+'پراید') ,
+                            get_divar_top(client , '/car?q='+'206') ,
+                            get_divar_top(client , '/car?q='+'پیکان') ,
+                            get_divar_top(client , ''+'همه'))
 
 loop = asyncio.get_event_loop()
 client = aiohttp.ClientSession(loop = loop) # Client session is the recommended interface for making HTTP requests.
